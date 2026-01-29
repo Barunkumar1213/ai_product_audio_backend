@@ -1,12 +1,12 @@
 const path = require("path");
-const { scrapeFiveProducts } = require("../scraper/scrapeProducts");
+const { scrapePumaRunningShoes } = require("../scraper/pumaRunningShoes");
 const { saveJson, readJson } = require("../storage/fileStorage");
 const { summarizeProducts } = require("../ai/openaiSummarizer");
 const { generateAudioFiles } = require("../tts/elevenlabsTts");
 
 async function runFlow() {
   // 1) Scrape product data
-  const products = await scrapeFiveProducts();
+  const products = await scrapePumaRunningShoes();
 
   // 2) Store locally
   const productsPath = path.join(process.cwd(), "data", "products.json");
